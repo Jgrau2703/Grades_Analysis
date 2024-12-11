@@ -97,7 +97,7 @@ app.layout = html.Div([
 
 ])
 
-# Callbacks for interactivity
+# Callbacks for interactivity with figures 1 and 2
 @app.callback(
     Output('graph-1', 'figure'),
     Output('graph-2', 'figure'),
@@ -121,7 +121,7 @@ def update_graphs_1_and_2(s_final, s_x, s_car, s_sem):
                   title=f'Distribucion de nota en el {s_final[-2]}° final del {s_sem}° semestre  de la carrera {s_car}') 
     return fig1, fig2
 
-
+# Callbacks for interactivity with figures 3 and 4
 @app.callback(
     Output('graph-3', 'figure'),
     Output('graph-4', 'figure'),
@@ -165,7 +165,6 @@ def update_graphs_3_and_4(s_final, s_car, s_a):
     fig4.update_xaxes(tickangle=-45)
     return fig3, fig4
 
-
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False, host='0.0.0.0', port=8080)
